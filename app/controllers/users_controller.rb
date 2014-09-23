@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       # success!
       sign_in(@user)
       flash[:notices] = ["Signed in!"]
-      redirect_to "/"
+      redirect_to root_url
     else
       # nope!
       flash.now[:errors] = @user.errors.full_messages

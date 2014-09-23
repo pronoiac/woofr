@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    debugger
+    
     if @user
       # success!
       sign_in(@user)
       flash[:notices] = ["Signed in!"]
-      redirect_to "new_user_url"
+      redirect_to root_url
     else
       # nope!
       flash.now[:errors] = ["Invalid login!"]
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   
   def destroy
     sign_out
-    redirect_to "/users/new"
+    redirect_to root_url
   end
   
 end
