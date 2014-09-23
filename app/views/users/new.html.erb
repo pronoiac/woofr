@@ -1,14 +1,27 @@
-<h1>Sign Up!</h1>
-<form action="<%= users_url %>" method="post">
-  <label>
-    Username
-    <input type="text" name="user[username]" value="">
-  </label>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-2">
+    <h1>Sign Up!</h1>
+    <form action="<%= users_url %>" method="post">
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      
+      <div class="form-group" for="username">
+        <label>
+          Username
+        </label>
+          
+        <input type="text" name="user[username]" value="" class="form-control" id="username">
+      </div>
   
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label>
-  
-  <input type="submit" value="Sign Up">
-</form>
+      <div class="form-group">
+        <label class="form-group">
+          Password
+        </label>
+          
+        <input type="password" name="user[password]" value="" class="form-control">
+        </label>
+      </div>
+      
+      <button type="submit" value="" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div><!-- /col-xs-4 -->
+</div><!-- /row -->
