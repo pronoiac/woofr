@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   
   def logged_in?
     !!current_user || guest?
-    # fail
   end
   
   def sign_in(user)

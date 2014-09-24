@@ -2,11 +2,17 @@ class UsersController < ApplicationController
   def new
     @user = User.new()
   end
+  
+  def edit
+    # form: going from guest to new user
+    @user = User.find(params[:id])
+  end
 
   def update
-    @user = User.new(user_params)
+    # going from guest to new user
+    @user = User.find(params[:id])
     @user.guest = false
-    if @user.save
+    if @user.update(user_params)
       # success!
       sign_in(@user)
       flash[:notices] = ["Signed in!"]
@@ -14,7 +20,7 @@ class UsersController < ApplicationController
     else
       # nope!
       flash.now[:errors] = @user.errors.full_messages
-      render :new
+      render :edit
     end
   end
 

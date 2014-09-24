@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-2">
     <h1>Sign Up!</h1>
-    <form action="<%= users_url %>" method="post">
+    <form action="<%= user_url(@user) %>" method="post">
+      <input type=hidden name="_method" value="patch">
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
       
       <div class="form-group" for="username">
