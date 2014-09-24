@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def edit
     # form: going from guest to new user
     @user = User.find(params[:id])
+    if guest?
+      @user.username = ""
+    end
   end
 
   def update
