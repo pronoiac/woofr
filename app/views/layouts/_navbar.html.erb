@@ -27,7 +27,6 @@
           </li><%# /logged_in %>
         <% else %>
           <li class="nav nav-pills"><a href="<%= new_session_url %>">Sign In</a></li>
-          <li class="nav nav-pills"><%= link_to "Sign up", new_user_url %></li>
           <li class="nav nav-pills"><%= link_to "Sign In as Guest", users_url, method: :post %><%# /neither guest nor logged in %>
         <% end %>
         <li class="nav nav-pills"><a href="<%= pages_contact_url %>">Contact</a></li>
