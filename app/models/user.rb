@@ -1,12 +1,19 @@
 class User < ActiveRecord::Base
 
   validates :username, :password_digest, :session_token, presence: true
-  validates :password, length: { minimum: 6, allow_nil: true}
-  validates :username, uniqueness: true
+  validates :password, length: { minimum: 6, allow_nil: true }
   
   after_initialize :ensures_session_token
   
   attr_reader :password
+  
+  def self.new_guest
+    user = User.new({
+      username: "guest_#{Time.now.to_i}_#{rand(99)}",
+      guest: true,
+      password: "guest." # 6 character minimum.
+    })
+  end
   
   def self.find_by_credentials(username, password)
     user = User.find_by(:username => username)

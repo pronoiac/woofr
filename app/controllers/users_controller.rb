@@ -3,8 +3,9 @@ class UsersController < ApplicationController
     @user = User.new()
   end
 
-  def create
+  def update
     @user = User.new(user_params)
+    @user.guest = false
     if @user.save
       # success!
       sign_in(@user)
@@ -17,11 +18,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
+  def create
+    @user = User.new_guest
+    @user.save!
+    sign_in(@user)
+    flash[:notices] = ["Welcome, new guest!"]
+    redirect_to root_url
   end
   
   private
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :guest)
   end
 end
