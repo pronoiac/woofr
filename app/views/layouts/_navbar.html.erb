@@ -13,7 +13,7 @@
               <li><%= link_to "Profile", user_url(current_user) %></li>
               <li><%= link_to "Sign Out", session_url, :method => :delete %></li>
             </ul>
-          </li><% # /guest %>
+          </li><%# /guest %>
         <% elsif logged_in? %>
           <li class="dropdown nav nav-pills">
             <button class="dropdown-toggle" type="button" id="signedInDropdown" data-toggle="dropdown">
@@ -24,11 +24,11 @@
               <li><%= link_to "Profile", user_url(current_user) %></li>
               <li><%= link_to "Sign Out", session_url, :method => :delete %></li>
             </ul>
-          </li><% # /logged_in %>
+          </li><%# /logged_in %>
         <% else %>
           <li class="nav nav-pills"><a href="<%= new_session_url %>">Sign In</a></li>
           <li class="nav nav-pills"><%= link_to "Sign up", new_user_url %></li>
-          <li class="nav nav-pills"><%= link_to "Sign In as Guest", users_url, method: :post %><% # /neither guest nor logged in %>
+          <li class="nav nav-pills"><%= link_to "Sign In as Guest", users_url, method: :post %><%# /neither guest nor logged in %>
         <% end %>
         <li class="nav nav-pills"><a href="<%= pages_contact_url %>">Contact</a></li>
         <li class="nav nav-pills"><a href="<%= pages_about_url %>">About</a></li>
