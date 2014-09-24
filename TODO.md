@@ -1,13 +1,28 @@
 Main list
 =========
-* Set up auth and guests. 
+Phase I
+-----
+* Set up auth and guests. [done]
+* Register domain or use subdomain [done](http://woofr.pronoiac.org/)
+
+Phase II: 
+-----
 * Add pix, with title and descriptions. Nested under user. 
-* Comments.  
 * User pages, with smaller versions of pix. 
-* Albums. 
+
+Phase III: 
+-----
+* Comments.
+
+Phase IV:
+-----
 * Tags. 
-* Stretch goal: Groups. 
-* Register domain or use subdomain
+* Albums. 
+
+Stretch goals:
+-----
+* Groups. 
+
 
 Potential niftiness
 -------------------
