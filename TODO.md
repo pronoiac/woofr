@@ -3,7 +3,7 @@ Main list
 Phase I
 -----
 * Set up auth and guests. [done]
-* Register domain or use subdomain [done](http://woofr.pronoiac.org/)
+* Register domain or use subdomain - [done](http://woofr.pronoiac.org/)
 
 Phase II: 
 -----
@@ -24,14 +24,18 @@ Stretch goals:
 * Groups. 
 
 
-Potential niftiness
--------------------
+Nice to have
+------------
 * Slideshows
 * Faves
 * User pics
 * Followers
 * share via email, Twitter, FB
 * get email address, so can use gravatar
+* sign in via Twitter, FB
+* contact page
+* about page
+
 
 Logo
 ----
