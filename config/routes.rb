@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :users
+  resources :users do
+    resources :images
+  end
   resource  :session
   
   root to: 'pages#home'
