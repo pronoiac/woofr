@@ -3,6 +3,7 @@
     <div class="navbar-header">
       <ul class="nav navbar-nav navbar-right">
         <li class="nav nav-pills"><a href="<%= root_url %>">Home</a></li>
+        
         <% if guest? %>
           <li class="dropdown nav nav-pills">
             <button class="dropdown-toggle" type="button" id="signedInDropdown" data-toggle="dropdown">
@@ -29,8 +30,14 @@
           <li class="nav nav-pills"><a href="<%= new_session_url %>">Sign In</a></li>
           <li class="nav nav-pills"><%= link_to "Sign In as Guest", users_url, method: :post %><%# /neither guest nor logged in %>
         <% end %>
+                
         <li class="nav nav-pills"><a href="<%= pages_contact_url %>">Contact</a></li>
         <li class="nav nav-pills"><a href="<%= pages_about_url %>">About</a></li>
+        
+        <% if logged_in? %>
+          <li class="nav nav-pills"><%= button_to "Upload", new_user_image_url(current_user), method: :get, class: "btn btn-primary" %>
+        <% end %>
+        
       </ul>
     </div>
   </div>
