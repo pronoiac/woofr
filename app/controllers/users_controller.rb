@@ -35,6 +35,10 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
   
+  def show
+    @images = Image.all.where(user_id: params[:id])
+  end
+  
   private
   def user_params
     params.require(:user).permit(:username, :password, :guest)

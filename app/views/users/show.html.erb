@@ -1,0 +1,10 @@
+<h1>Users#show</h1>
+<ul>
+  <% @images.each do |image| %>
+    <li>
+      <a href="<%= user_image_url(current_user, image) %>">
+        <img src="<%= image.filepicker_url %>/convert?h=300">
+      </a>
+    </li>
+  <% end %>
+</ul>
