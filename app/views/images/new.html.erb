@@ -5,16 +5,28 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
       <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
       <script>
-      filepicker.setKey("ApZjrxYjxQCKbJDoJEQnDz")
+        filepicker.setKey("ApZjrxYjxQCKbJDoJEQnDz")
+        function uploadComplete() {
+          console.log ("uploaded!");
+          var $button = $("#filepickerButton~button:first-of-type");
+          $button.text("Image uploaded!");
+          $button.addClass("disabled");
+        }
       </script>
       <input 
         type="filepicker" 
         data-fp-mimetypes="image/*" 
         data-fp-container="modal" 
-        onchange="alert(event.fpfile.url)" 
         class="btn btn-primary"
         data-fp-button-text="Choose image"
-        name="image[filepicker_url]">
+        name="image[filepicker_url]"
+        id="filepickerButton"
+        onchange=uploadComplete()
+        >
+        
+      <script>
+        $("#filepickerButton").prop('disabled', true);
+      </script>
       
       <div class="form-group" for="title">
         <label>
@@ -33,7 +45,7 @@
         </label>
       </div>
   
-      <button type="submit" value="" class="btn btn-primary">Upload image</button>
+      <button type="submit" value="" class="btn btn-primary">Post image</button>
     </form>
   </div><!-- /col-xs-4 -->
 </div><!-- /row -->  
