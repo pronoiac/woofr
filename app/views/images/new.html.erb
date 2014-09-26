@@ -3,14 +3,17 @@
     <h1>Upload an image!</h1>
     <form action="<%= user_images_url(current_user) %>" method="post" role="form">
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-      <%= filepicker_js_include_tag %>
-            
-      <%= form_for @image do |f| %>
-        <div>
-          <%= f.label :filepicker_url, "Upload Your Avatar:" %>
-          <%= f.filepicker_field :filepicker_url %>
-        </div>
-      <% end %>
+      <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+      <script>
+      filepicker.setKey("ApZjrxYjxQCKbJDoJEQnDz")
+      </script>
+      <input 
+        type="filepicker" 
+        data-fp-mimetypes="image/*" 
+        data-fp-container="modal" 
+        onchange="alert(event.fpfile.url)" 
+        class="btn btn-primary"
+        name="image[filepicker_url]">
       
       <div class="form-group" for="title">
         <label>
