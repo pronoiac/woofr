@@ -14,19 +14,15 @@
         }
       </script>
       <input 
-        type="filepicker" 
-        data-fp-mimetypes="image/*" 
-        data-fp-container="modal" 
+        type="filepicker"
+        data-fp-mimetypes="image/*"
+        data-fp-container="modal"
         class="btn btn-primary"
         data-fp-button-text="Choose image"
         name="image[filepicker_url]"
-        id="filepickerButton"
         onchange=uploadComplete()
-        >
-        
-      <script>
-        $("#filepickerButton").prop('disabled', true);
-      </script>
+        id="filepickerButton" 
+      > 
       
       <div class="form-group" for="title">
         <label>

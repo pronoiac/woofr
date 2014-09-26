@@ -3,7 +3,6 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
     @image.user_id = current_user.id
     @image.save!
-    fail
       
     render :json => @image
   end
