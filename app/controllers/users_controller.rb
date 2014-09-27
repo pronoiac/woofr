@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @shown_user = User.find_by_id(params[:id])
     @images = Image.all.where(user_id: params[:id])
   end
   

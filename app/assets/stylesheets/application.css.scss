@@ -14,3 +14,11 @@
  *= require_self
  */
 @import "bootstrap";
+
+/* clearfix */
+/* Additional CSS */
+section:after {
+  content: ""; /* Empty content string */
+  clear: both;
+  display: table; /* Need this to work properly on IE */
+}
