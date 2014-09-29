@@ -4,7 +4,8 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
     @image.save!
       
-    render :json => @image
+    # render :json => @image
+    redirect_to user_image_path(id: @image.id)
   end
 
   def show
