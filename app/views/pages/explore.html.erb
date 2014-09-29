@@ -1,0 +1,14 @@
+<h1>Pictures</h1>
+<ul>
+  <% @images.each do |image| %>
+    <% user = User.find_by_id(image.user_id) %>
+      <a href="<%= user_image_url(user, image) %>" class="pic ">
+        <img 
+          src="<%= image.filepicker_url %>/convert?h=300"
+          class="">
+        <div class="caption">
+          <%= image.title %> by <%= user.username %>
+        </div>
+      </a>
+  <% end %>
+</ul>
