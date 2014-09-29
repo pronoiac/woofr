@@ -21,13 +21,24 @@
   <% else %>
     <div class="row">
       <h2>Comments</h2>
-      <div class="col-xs-9 col-offset-1">
         <% @comments.each do |comment| %>
           <% commenter = User.find_by_id(comment.user_id) %>
-          <li>posted by <a href="<%= user_url(commenter) %>">
-            <%= commenter.username %></a> <%= time_ago_in_words(comment.created_at) %><br>
-          <%= comment.body %>
-            </li>
+          <div class="media">
+            <a class="pull-left" href="#">
+              <img 
+                class="media-object img-circle"
+                src="http://placehold.it/32x32"
+                alt="user pic">
+            </a>
+            <div class="media-body">
+              <div class="media-heading">
+                <a href="<%= user_url(commenter) %>">
+                  <%= commenter.username %></a>
+                  <%= time_ago_in_words(comment.created_at) %><br>
+              </h4>
+              <%= comment.body %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
@@ -35,7 +46,7 @@
   
   <div class="row">
     <h2>Leave a comment!</h2>
-    <form action="<%= comments_url %>" method="POST">
+    <form action="<%= comments_url %>" method="POST" class="navbar-form">
       <input
         type="hidden"
         name="authenticity_token"
