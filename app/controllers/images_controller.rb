@@ -12,6 +12,7 @@ class ImagesController < ApplicationController
     @shown_user = User.find_by_id(params[:user_id])
     shown_image_id = params[:id]
     @image = Image.find_by(user_id: @shown_user.id, id: shown_image_id)
+    @comments = Comment.where(image_id: shown_image_id)
   end
 
   def new

@@ -8,6 +8,13 @@ class User < ActiveRecord::Base
   
   attr_reader :password
   
+  has_many(
+    :comments,
+    class_name: "Comments",
+    primary_key: :id,
+    foreign_key: :user_id
+  )
+  
   def self.new_guest
     user = User.new({
       username: "guest_#{Time.now.to_i}_#{rand(99)}",
