@@ -45,27 +45,31 @@
   <% end %>
   
   <div class="row">
-    <h2>Leave a comment!</h2>
-    <form action="<%= comments_url %>" method="POST" class="navbar-form">
-      <input
-        type="hidden"
-        name="authenticity_token"
-        value="<%= form_authenticity_token %>">
+    <div class="caption col-xs-9 col-offset-1">
+      <h2>Leave a comment!</h2>
+      <form action="<%= comments_url %>" method="POST">
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
       
-      <input
-        type="hidden"
-        name="comment[image_id]"
-        value="<%= @image.id %>">
+        <input
+          type="hidden"
+          name="comment[image_id]"
+          value="<%= @image.id %>">
         
-      <input
-        type="hidden"
-        name="comment[image_user_id]"
-        value="<%= @shown_user.id %>">
+        <input
+          type="hidden"
+          name="comment[image_user_id]"
+          value="<%= @shown_user.id %>">
         
-      <label>
-        Comment body
-      </label>
-      <textarea name="comment[body]"></textarea>
-    <input type="submit">
+        <div class="form-group">
+          <label>
+            Comment body
+          </label>
+        </div>
+        <textarea name="comment[body]" class="form-control"></textarea>
+      <input type="submit" class="btn btn-primary">
+    </div>
   </div>
 </div>
