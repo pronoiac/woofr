@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :comments
   
   
-  root to: 'pages#home'
+  get 'pages/home'
   get 'pages/about'
   get 'pages/contact'
-  get 'pages/explore'
+  root to: 'pages#explore'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
