@@ -31,6 +31,12 @@ class TaggingsController < ApplicationController
     # fail
   end
   
+  def destroy
+    tagging = Tagging.find(params[:id])
+    tagging.destroy!
+    redirect_to :back
+  end
+  
   private
   def tagging_params
     params.require(:taggings).permit(:id)
