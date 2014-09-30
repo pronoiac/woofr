@@ -29,6 +29,34 @@
     </div>
   <% end %>
   
+  <div class="row">
+    <div class="caption col-xs-9 col-offset-1">
+      <form action="<%= taggings_url %>" method="POST">
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+      
+        <input
+          type="hidden"
+          name="tag[image_id]"
+          value="<%= @image.id %>">
+        
+        <input
+          type="hidden"
+          name="tag[image_user_id]"
+          value="<%= @shown_user.id %>">
+        
+        <div class="form-group">
+          <label>
+            Leave a tag!
+          </label>
+        </div>
+        <textarea name="tag[name]" class="form-control"></textarea>
+      <input type="submit" class="btn btn-primary">
+    </div>
+  </div>
+  
       
   <h2>Comments</h2>
   <% if @comments.empty? %>
