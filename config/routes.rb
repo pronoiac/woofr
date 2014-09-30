@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resource  :session
   resources :comments
   resources :taggings
+  resources :tags
   
   
   get 'pages/home'

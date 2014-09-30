@@ -1,0 +1,20 @@
+<h1>Pictures tagged <%= @tag.name %></h1>
+<ul>
+  <% @images.each do |image| %>
+    <% user = User.find_by_id(image.user_id) %>
+    <a href="<%= user_image_url(user, image) %>" class="pic ">
+      <img 
+        src="<%= image.filepicker_url %>/convert?h=300"
+        class=""
+        data-toggle="tooltip" 
+        data-placement="bottom" 
+        title='<%= image.title %> by <%= user.username %>'
+        alt='<%= image.title %> by <%= user.username %>'
+        >
+    </a>
+  <% end %>
+  <script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+  </script>
+  
+</ul>

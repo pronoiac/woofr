@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-xs-9 col-offset-1">
         <% @taggings.each do |tagging| %>
-          <a href="<%= tagging_url(tagging) %>"><%= tagging.name %></a>
+          <a href="<%= tag_url(tagging.tag_id) %>"><%= tagging.name %></a>
         <% end %>
       </div>
     </div>
