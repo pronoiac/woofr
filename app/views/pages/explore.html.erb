@@ -5,10 +5,16 @@
       <a href="<%= user_image_url(user, image) %>" class="pic ">
         <img 
           src="<%= image.filepicker_url %>/convert?h=300"
-          class="">
-        <div class="caption">
-          <%= image.title %> by <%= user.username %>
-        </div>
+          class=""
+          data-toggle="tooltip" 
+          data-placement="bottom" 
+          title='<%= image.title %> by <%= user.username %>'
+          alt='<%= image.title %> by <%= user.username %>'
+          >
       </a>
   <% end %>
+  <script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+  </script>
+  
 </ul>
