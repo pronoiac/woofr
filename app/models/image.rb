@@ -10,6 +10,12 @@ class Image < ActiveRecord::Base
     primary_key: :id
   )
   
+  has_many(
+    :taggings,
+    class_name: "Tagging",
+    foreign_key: :image_id,
+    primary_key: :id
+  )
   
   
 end

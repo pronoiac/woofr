@@ -16,6 +16,20 @@
     </div>
   </div>
   
+  <h2>Tags</h2>
+  <% if @taggings.empty? %>
+    <h3><i>No tags yet.</i></h3>
+  <% else %>
+    <div class="row">
+      <div class="col-xs-9 col-offset-1">
+        <% @taggings.each do |tagging| %>
+          <a href="<%= tagging_url(tagging) %>"><%= tagging.name %></a>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+      
+  
   <% if @comments.empty? %>
     <h3><i>No comments yet.</i></h3>
   <% else %>
