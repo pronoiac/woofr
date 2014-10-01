@@ -27,6 +27,21 @@ class ImagesController < ApplicationController
     render :json => Image.all
   end
   
+  def destroy
+    @image = Image.find_by(id: params[:id])
+     
+    if (@image.poster == current_user)
+      # yay!
+      @image.destroy!
+      flash[:notices] = ["Image removed!"]
+      redirect_to user_url(current_user)
+    else
+      # nope!
+      flash[:errors] = ["Not your picture to delete!"]
+      redirect_to :back
+    end
+  end
+  
   private
   
   def image_params
