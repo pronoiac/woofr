@@ -17,5 +17,16 @@ class Image < ActiveRecord::Base
     primary_key: :id
   )
   
-  
+  def self.load_metadata(image)
+    metadata_url = image.filepicker_url + "/metadata?width=true&height=true"
+    res = RestClient.get metadata_url
+    if res.code == 200
+      hash = JSON.parse res # .body?
+      # fail
+      image.width = hash["width"]
+      image.height = hash["height"]
+      return true
+    end
+    return false
+  end
 end

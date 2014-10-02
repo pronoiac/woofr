@@ -2,8 +2,9 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     @image.user_id = current_user.id
+    Image.load_metadata(@image)
     @image.save!
-      
+    
     # render :json => @image
     redirect_to user_image_path(id: @image.id)
   end
