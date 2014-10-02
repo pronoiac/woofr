@@ -58,3 +58,5 @@ gem 'bootstrap-sass'
 gem 'sprockets' #, '~> 3.0'
 gem 'rails_12factor'
 gem 'filepicker-rails'
+
+gem 'rest-client'
