@@ -15,6 +15,13 @@ class ImagesController < ApplicationController
     @image = Image.find_by(user_id: @shown_user.id, id: shown_image_id)
     @comments = Comment.where(image_id: shown_image_id)
     @taggings = @image.taggings
+    # arbitrary max dimensions, from a browser on my dev sys: 900 x 400. eh. giving room for error...
+    # TODO: constants.
+    if (@image.width < 900 && @image.height < 600)
+      @image_url = @image.filepicker_url
+    else
+      @image_url = @image.filepicker_url + "/convert?h=600"
+    end
   end
 
   def new
@@ -42,7 +49,7 @@ class ImagesController < ApplicationController
       redirect_to :back
     end
   end
-  
+
   private
   
   def image_params
