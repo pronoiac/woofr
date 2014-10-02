@@ -22,3 +22,8 @@ section:after {
   clear: both;
   display: table; /* Need this to work properly on IE */
 }
+
+/* specified in bootstrap above, redefining */
+.jumbotron {
+  background-color: #0d0d0d;
+}
