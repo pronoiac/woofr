@@ -60,3 +60,5 @@ gem 'rails_12factor'
 gem 'filepicker-rails'
 
 gem 'rest-client'
+
+gem "lol_dba"
