@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :taggings
   resources :tags
   
-  
   get 'pages/home'
   get 'pages/about'
   get 'pages/contact'
+  get 'pages/welcome'
   root to: 'pages#explore'
   
 

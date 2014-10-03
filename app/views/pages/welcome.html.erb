@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-offset-1 vcenter">
+        <p class="text-center">
+          <%= image_tag "woofr-logo.png", class: "img-responsive" %>
+        </p>
+      </div>
+      <div class="col-xs-1 vcenter">
+      </div>
+      <div class="col-xs-4 vcenter">
+        <h1>Welcome!</h1>
+        <p>You must be logged in to see that page.</p>
+          <%= link_to "Sign In as Guest", users_url, method: :post, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</div>
