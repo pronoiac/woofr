@@ -62,3 +62,5 @@ gem 'filepicker-rails'
 gem 'rest-client'
 
 gem "lol_dba"
+
+gem 'thin'
