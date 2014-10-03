@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
   
   def explore
+    redirect_to pages_welcome_url unless logged_in?
     # @shown_user = User.find_by_id(params[:id])
     @images = Image.all
   end
