@@ -22,6 +22,8 @@ class ImagesController < ApplicationController
   end
 
   def new
+    redirect_to pages_welcome_url unless logged_in?
+    
     @image = Image.new()
   end
 
