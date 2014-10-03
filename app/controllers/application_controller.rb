@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  helper_method :current_user, :logged_in?, :requires_login, :guest?
+  helper_method :current_user, :logged_in?, :requires_login, :guest?,
+    :my_image_url
   
   def current_user
     @user = User.find_by_session_token(session[:session_token])
@@ -34,4 +35,14 @@ class ApplicationController < ActionController::Base
     return false if current_user.nil?
     return current_user.guest?
   end
+  
+
+  def my_image_url(image, max_height)
+    if (image.height < max_height)
+      return image.filepicker_url
+    else
+      return image.filepicker_url + "/convert?h=#{max_height}"
+    end
+  end
+  
 end

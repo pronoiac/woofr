@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+
   def create
     @image = Image.new(image_params)
     @image.user_id = current_user.id
@@ -17,11 +18,7 @@ class ImagesController < ApplicationController
     @taggings = @image.taggings
     # arbitrary max dimensions, from a browser on my dev sys: 900 x 400. eh. giving room for error...
     # TODO: constants.
-    if (@image.width < 900 && @image.height < 600)
-      @image_url = @image.filepicker_url
-    else
-      @image_url = @image.filepicker_url + "/convert?h=600"
-    end
+    @image_url = my_image_url(@image, 600)
   end
 
   def new
