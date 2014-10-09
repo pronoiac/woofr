@@ -63,4 +63,6 @@ gem 'rest-client'
 
 gem "lol_dba"
 
-gem 'thin'
+group :production do
+  gem 'thin'
+end
