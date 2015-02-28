@@ -5,6 +5,7 @@ class TagsController < ApplicationController
     @images = tagged_images.map do |tagged_image|
       Image.find_by_id(tagged_image.image_id)
     end
+    @page_title = "images tagged #{@tag.name}"
   end
 
   def index

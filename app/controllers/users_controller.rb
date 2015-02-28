@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   def show
     @shown_user = User.find_by_id(params[:id])
     @images = Image.all.where(user_id: params[:id])
+    @page_title = "Pictures from #{ @shown_user.username }"
   end
   
   private

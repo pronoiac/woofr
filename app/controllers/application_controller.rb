@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   helper_method :current_user, :logged_in?, :requires_login, :guest?,
-    :my_image_url
+    :my_image_url, :page_title
   
   def current_user
     @user = User.find_by_session_token(session[:session_token])
@@ -43,6 +43,10 @@ class ApplicationController < ActionController::Base
     else
       return image.filepicker_url + "/convert?h=#{max_height}"
     end
+  end
+  
+  def page_title(title)
+    @page_title = title
   end
   
 end

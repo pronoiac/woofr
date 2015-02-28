@@ -19,6 +19,7 @@ class ImagesController < ApplicationController
     # arbitrary max dimensions, from a browser on my dev sys: 900 x 400. eh. giving room for error...
     # TODO: constants.
     @image_url = my_image_url(@image, 600)
+    @page_title = "#{ @image.title } by #{ @shown_user.username }"
   end
 
   def new
