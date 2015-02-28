@@ -47,8 +47,9 @@
     <div class="row">
       <div class="col-xs-9 col-offset-1">
         <% @taggings.each do |tagging| %>
-          <button type="button" class="btn btn-default btn-tag"><a href="<%= tag_url(tagging.tag_id) %>"><%= tagging.name %></a></button>
+          <div type="button" class="btn btn-default btn-tag"><a href="<%= tag_url(tagging.tag_id) %>"><%= tagging.name %></a>
             <a href="<%= tagging_url(tagging.id) %>" data-method="delete"><span class="glyphicon glyphicon-remove-circle"></span></a>
+          </div>
         <% end %>
       </div>
     </div>
