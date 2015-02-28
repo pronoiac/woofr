@@ -66,3 +66,6 @@ gem "lol_dba"
 group :production do
   gem 'thin'
 end
+
+gem "foreigner"
+gem "immigrant"

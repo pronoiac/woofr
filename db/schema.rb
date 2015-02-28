@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002185642) do
+ActiveRecord::Schema.define(version: 20150228072730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,5 +71,10 @@ ActiveRecord::Schema.define(version: 20141002185642) do
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  add_foreign_key "images", "users", name: "images_user_id_fk"
+
+  add_foreign_key "taggings", "images", name: "taggings_image_id_fk"
+  add_foreign_key "taggings", "tags", name: "taggings_tag_id_fk"
 
 end
