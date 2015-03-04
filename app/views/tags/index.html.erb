@@ -1,16 +1,32 @@
-<h1>Tags</h1>
+<div class="container">
+  <div class="row">
+    <div class="page-header col-xs-9 col-offset-1">
 
-<% tag_counts = Tagging.group(:tag_id).count %>
-<% tag_names = {} %>
-<% Tag.all.each do |tag| %>
-  <% tag_names[tag.id] = tag.name %>
-<% end %>
+      <div class="page-header">
+        <h1>Popular tags</h1>
+      </div>
 
-<% tag_counts.sort_by{|k, v| -v}.each do |tag_no, count| %>
-  <% tag_name = tag_names[tag_no] %>
-  <li>
-    <% "#{tag_no}, #{tag_name}, #{count}" %>
-    <%= count %> <a href="<%= tag_url(tag_no) %>"><%= tag_name %></a>
-  </li>
-  
-<% end %>
+      <% tag_counts = Tagging.group(:tag_id).count %>
+      <% tag_names = {} %>
+      <% Tag.all.each do |tag| %>
+        <% tag_names[tag.id] = tag.name %>
+      <% end %>
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge">#</span>
+          Tag name
+        </li>
+    
+        <% tag_counts.sort_by{|k, v| -v}.each do |tag_no, count| %>
+          <% tag_name = tag_names[tag_no] %>
+          <li class="list-group-item">
+            <span class="badge"><%= count %></span>
+            <a href="<%= tag_url(tag_no) %>">
+            <%= tag_name %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
