@@ -32,7 +32,11 @@
         <% end %>
         
         <% if logged_in? %>
-          <li class="nav nav-pills navbar-form"><%= button_to "Upload", new_user_image_url(current_user), method: :get, class: "btn btn-primary" %>
+          <li class="nav nav-pills navbar-form"><%= button_to "Upload", new_user_image_url(current_user), method: :get, class: "btn btn-primary" %></li>
+          <li class="nav nav-pills">
+            <a href="<%= tags_url %>">
+              Popular Tags
+            </a>
         <% end %>
         
         <li class="nav nav-pills"><a href="<%= pages_contact_url %>">Contact</a></li>
