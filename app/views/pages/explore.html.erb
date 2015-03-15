@@ -13,6 +13,9 @@
           >
       </a>
   <% end %>
+  <div id="infinite-scrolling">
+    <%= will_paginate (@images) %>
+  </div>
   <script>
     $(function () { $("[data-toggle='tooltip']").tooltip(); });
   </script>
