@@ -12,7 +12,11 @@ class PagesController < ApplicationController
   end
   
   def explore
-    redirect_to pages_welcome_url unless logged_in?
+    if !logged_in?
+      redirect_to pages_welcome_url
+      return
+    end
+    
     # @shown_user = User.find_by_id(params[:id])
     @images = Image.
       paginate(page: params[:page], per_page: 6).
