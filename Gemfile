@@ -69,3 +69,6 @@ end
 
 gem "foreigner"
 gem "immigrant"
+
+gem "will_paginate"
+gem "bootstrap-will_paginate"
