@@ -1,11 +1,10 @@
 <h1>Pictures</h1>
-<ul>
-  <%= render @images %>
+  <ul id="images">
+    <%= render @images %>
+  </ul>
   <div id="infinite-scrolling">
     <%= will_paginate (@images) %>
   </div>
   <script>
     $(function () { $("[data-toggle='tooltip']").tooltip(); });
   </script>
-  
-</ul>
