@@ -1,0 +1,11 @@
+    <% user = User.find_by_id(image.user_id) %>
+      <a href="<%= user_image_url(user, image) %>" class="pic ">
+        <img 
+          src="<%= my_image_url(image, 300) %>"
+          class="image-thumbnail"
+          data-toggle="tooltip" 
+          data-placement="top" 
+          title='<%= image.title %> by <%= user.username %>'
+          alt='<%= image.title %> by <%= user.username %>'
+          >
+      </a>
