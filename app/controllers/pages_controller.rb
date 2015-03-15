@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     redirect_to pages_welcome_url unless logged_in?
     # @shown_user = User.find_by_id(params[:id])
     @images = Image.
-      paginate(page: params[:page], per_page: 3).
+      paginate(page: params[:page], per_page: 6).
       order(created_at: :desc)
     @page_title = "Explore"
     # for pagination
