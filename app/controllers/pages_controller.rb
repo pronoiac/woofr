@@ -18,5 +18,10 @@ class PagesController < ApplicationController
       paginate(page: params[:page], per_page: 3).
       order(created_at: :desc)
     @page_title = "Explore"
+    # for pagination
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end

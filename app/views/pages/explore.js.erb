@@ -1,0 +1,7 @@
+$('#images').append('<%= escape_javascript render @images %>');
+<% if @images.next_page %>
+  $('.pagination').replaceWith('<%= escape_javascript will_paginate @images %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>
